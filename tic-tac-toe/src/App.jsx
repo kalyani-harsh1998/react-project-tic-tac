@@ -20,7 +20,7 @@ function App() {
     for (let pattern of winPatterns) {
       const [a, b, c] = pattern;
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        setWinner(true);
+        setWinner(board[a]);
         return board[a];
       }
     }
@@ -66,6 +66,7 @@ function App() {
           <Squares value={square[7]} handleClick={() => handleClick(7)} />
           <Squares value={square[8]} handleClick={() => handleClick(8)} />
         </div>
+        {winner && <h2>{winner} won!</h2>}
         <button onClick={reset} className='reset'>RESET</button>
       </div>
     </>
